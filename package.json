@@ -2,11 +2,15 @@
   "name": "calendar-app",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
+    "build": "npm run build --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present"
