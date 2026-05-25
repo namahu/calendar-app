@@ -5,7 +5,14 @@
     "moduleResolution": "NodeNext",
     "lib": [
       "ES2022"
-    ]
+    ],
+    "types": [
+      "node"
+    ],
+    "rootDir": "./src",
+    "outDir": "./dist"
   },
-  "files": []
+  "include": [
+    "src/**/*.ts"
+  ]
 }
