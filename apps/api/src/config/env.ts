@@ -34,7 +34,7 @@ const resolvePort = (value: string | undefined): number => {
 
 const resolveDatabasePath = (value: string | undefined): string => {
   if (value === undefined) {
-    return DEFAULT_DATABASE_PATH;
+    return path.resolve(repositoryRoot, DEFAULT_DATABASE_PATH);
   }
 
   const normalizedValue = value.trim();
@@ -43,7 +43,11 @@ const resolveDatabasePath = (value: string | undefined): string => {
     throw new Error('DATABASE_PATH must not be empty.');
   }
 
-  return normalizedValue;
+  if (path.isAbsolute(normalizedValue)) {
+    return normalizedValue;
+  }
+
+  return path.resolve(repositoryRoot, normalizedValue);
 };
 
 export type Env = {
