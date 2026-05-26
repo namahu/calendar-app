@@ -6,4 +6,10 @@ export const registerRoutes = (app: Hono): void => {
       message: 'API server is running.',
     });
   });
+  app.get('/health', (c) => {
+    return c.json({
+      status: 'ok',
+      message: 'API health check is ok.'
+    });
+  });
 };
